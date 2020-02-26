@@ -52,7 +52,7 @@ Person.prototype.eat = function(str){
 Person.prototype.poop = function (){
   return (this.stomach=[]);
 };
-
+                                        
 Person.prototype.toString = function(){
   return `${this.name}, ${this.age}`
 };
@@ -76,12 +76,21 @@ function Car(model, milesPerGallon) {
   this.milesPerGallon=milesPerGallon;
   this.tank=0;
   this.odometer=0;
-  this.fill = function(gallons){
-    return (this.tank += gallons)
-  }
-  
+};
+  Car.prototype.fill = function(gallons){
+    return (this.tank += gallons);
 }
-
+  Car.prototype.drive = function (distance) {
+    let maxDistance = this.tank*this.milesPerGallon;
+    if(distance < maxDistance) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    }else if (distance >= maxDistance){
+      this.odometer += maxDistance;
+      this.tank -= maxDistance / this.milesPerGallon;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    };
+  };
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -120,4 +129,5 @@ if (typeof exports !== 'undefined') {
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }
-}
+  };
+
