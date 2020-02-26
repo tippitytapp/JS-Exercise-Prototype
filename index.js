@@ -113,10 +113,10 @@ Baby.prototype.play= function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global BInding = when in the global scope, the this keyword is binded to the window,
+  2. implicit binding = when using a function and calling (.) dot notationo, the this keyword is pointing to the left of the dot.
+  3. New Binding - when using the new keyword,  the this keyword will point to the new object you created via your constructor function . and will most often be capitalized.
+  4. Explicit Binding - using methods like call, apply, and bind, yiou are immediately invoking the functions you've created and that is what the this is pointing to,
 */
 
 
